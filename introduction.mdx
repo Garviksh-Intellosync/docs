@@ -1,71 +1,45 @@
----
-title: Introduction
-description: "Welcome to the home of your new documentation"
----
+import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import { Search, FileText, Settings, Workflow, ShieldCheck, Layers, BarChart, Users, ClipboardList } from "lucide-react";
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.png"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.png"
-  alt="Hero Dark"
-/>
+export default function IntellosyncHelpCenter() {
+  return (
+    <div className="bg-gray-900 text-white min-h-screen">
+      <div className="max-w-4xl mx-auto py-16 px-6 text-center">
+        <h1 className="text-5xl font-extrabold">Welcome to Intellosync Help Center</h1>
+        <p className="text-lg mt-3 text-gray-300">Your gateway to seamless contract management solutions</p>
+        <div className="mt-6 flex justify-center">
+          <Input
+            placeholder="Search articles, guides, and FAQs..."
+            className="w-full md:w-2/3 p-4 rounded-lg text-black"
+            icon={<Search />}
+          />
+        </div>
+      </div>
 
-## Setting up
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pb-16">
+        <HelpCard icon={<FileText size={36} />} title="Getting Started" description="Learn how to begin with Intellosync" />
+        <HelpCard icon={<Settings size={36} />} title="Platform Management" description="Manage permissions & settings" />
+        <HelpCard icon={<Workflow size={36} />} title="Workflow Designer" description="Create & optimize workflows" />
+        <HelpCard icon={<ShieldCheck size={36} />} title="Compliance & Security" description="Ensure regulatory adherence" />
+        <HelpCard icon={<Layers size={36} />} title="Integrations" description="Connect your favorite tools" />
+        <HelpCard icon={<FileText size={36} />} title="Release Notes" description="Stay updated with new features" />
+        <HelpCard icon={<BarChart size={36} />} title="Analytics & Insights" description="Monitor contract performance" />
+        <HelpCard icon={<Users size={36} />} title="User Management" description="Manage teams & roles efficiently" />
+        <HelpCard icon={<ClipboardList size={36} />} title="FAQs & Troubleshooting" description="Find answers to common issues" />
+      </div>
+    </div>
+  );
+}
 
-The first step to world-class documentation is setting up your editing environments.
-
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
-
-## Make it yours
-
-Update your docs to your brand and add valuable content for the best user conversion.
-
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/content/components/accordions"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
+function HelpCard({ icon, title, description }) {
+  return (
+    <Card className="bg-gray-800 text-white p-6 rounded-xl shadow-lg hover:bg-gray-700 transition duration-200">
+      <CardContent className="flex flex-col items-center text-center space-y-4">
+        {icon}
+        <h3 className="text-xl font-semibold">{title}</h3>
+        <p className="text-gray-400">{description}</p>
+      </CardContent>
+    </Card>
+  );
+}
